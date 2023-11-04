@@ -5,7 +5,6 @@ import taskRoutes from "./routes/taskRoutes.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const mongoDburl = process.env.MONGO_URI;
 const PORT = process.env.PORT || 5555;
 
 const app = express();
@@ -28,7 +27,9 @@ app.get("/", (request, response) => {
 app.use("/task", taskRoutes);
 
 mongoose
-  .connect(mongoDburl)
+  .connect(
+    "mongodb+srv://eco:UkcFrodElFrUJANJ@todo-app.eyewt3h.mongodb.net/?authSource=Todo-app&authMechanism=SCRAM-SHA-1"
+  )
   .then(() => {
     console.log("app connected to the database");
     app.listen(PORT, () => {
