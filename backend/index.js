@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: [""],
+    origin: ["https://vercel.com/cout05s-projects/todo-app-frontend"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
