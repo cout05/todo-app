@@ -5,7 +5,7 @@ import taskRoutes from "./routes/taskRoutes.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const mongoDburl = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI;
 const PORT = process.env.PORT || 5555;
 
 const app = express();
@@ -13,7 +13,7 @@ const app = express();
 app.use(
   cors({
     origin: ["https://todo-app-frontend-rose.vercel.app"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
 );
@@ -28,7 +28,7 @@ app.get("/", (request, response) => {
 app.use("/task", taskRoutes);
 
 mongoose
-  .connect(mongoDburl)
+  .connect(MONGO_URI)
   .then(() => {
     console.log("app connected to the database");
     app.listen(PORT, () => {
