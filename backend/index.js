@@ -11,7 +11,11 @@ const PORT = process.env.PORT || 5555;
 const app = express();
 
 app.use(
-  cors()
+  cors({
+    origin: ["https://todo-app-frontend-rose.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
 );
 
 app.use(express.json());
