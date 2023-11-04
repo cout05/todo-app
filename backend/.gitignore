@@ -1,0 +1,30 @@
+# Ignore dependencies
+/node_modules
+
+# Ignore environment configuration
+.env
+.env.local
+
+# Ignore logs and temporary files
+/logs/
+/temp/
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+
+# Ignore database files
+/database_dump.sql
+/database_config.json
+
+# Ignore compiled code
+/build/
+/dist/
+
+# Ignore user-specific files
+/user-specific-file
+/cache/
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db
