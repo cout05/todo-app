@@ -5,7 +5,6 @@ import taskRoutes from "./routes/taskRoutes.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const MONGO_URI = process.env.MONGO_URI;
 const PORT = process.env.PORT || 5555;
 
 const app = express();
@@ -28,7 +27,7 @@ app.get("/", (request, response) => {
 app.use("/task", taskRoutes);
 
 mongoose
-  .connect(MONGO_URI)
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("app connected to the database");
     app.listen(PORT, () => {
