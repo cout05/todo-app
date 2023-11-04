@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import TodoList from "./TodoList";
-import { TaskContext } from "../context/taskContext";
+import { TaskContext } from "../context/TaskContext";
 import { AddTaskContext } from "../context/AddTaskContext";
 
 const TodoApp = () => {
