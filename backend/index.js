@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["*"],
+    origin: ["https://todo-app-frontend-rose.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
