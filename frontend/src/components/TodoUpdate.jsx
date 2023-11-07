@@ -14,7 +14,7 @@ const TodoUpdate = () => {
       completed,
     };
     axios
-      .put(`${API_URL}/${id}`, data)
+      .put(`https://todo-app-backend-three.vercel.app/task/${id}`, data)
       .then(() => {
         console.log("updated");
         setId("");

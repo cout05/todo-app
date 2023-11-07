@@ -13,7 +13,7 @@ const TodoAdd = () => {
       task,
     };
     axios
-      .post(`${API_URL}`, data)
+      .post("https://todo-app-backend-three.vercel.app/task", data)
       .then(() => {
         setTask("");
         setAdd(false);

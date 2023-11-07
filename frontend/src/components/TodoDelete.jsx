@@ -10,7 +10,7 @@ const TodoDelete = () => {
 
   const isDeleted = () => {
     axios
-      .delete(`${API_URL}/${id}`)
+      .delete(`https://todo-app-backend-three.vercel.app/task/${id}`)
       .then(() => {
         console.log("deleted");
         setId("");
