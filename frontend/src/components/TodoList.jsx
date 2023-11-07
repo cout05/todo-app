@@ -24,8 +24,6 @@ const TodoList = () => {
   const { setUpdateStatus } = useContext(UpdateStatusContext);
   const [completed, setCompleted] = useState(0);
 
-  const API_URL = import.meta.env.VITE_API_URL;
-
   useEffect(() => {
     axios
       .get("https://todo-app-backend-three.vercel.app/task")

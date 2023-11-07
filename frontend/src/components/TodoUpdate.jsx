@@ -6,7 +6,6 @@ import { UpdateStatusContext } from "../context/UpdateStatusContext";
 const TodoUpdate = () => {
   const { id, setId } = useContext(TaskIdContext);
   const { updateStatus, setUpdateStatus } = useContext(UpdateStatusContext);
-  const API_URL = import.meta.env.VITE_API_URL;
 
   const isUpdated = () => {
     const completed = true;

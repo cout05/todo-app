@@ -6,7 +6,6 @@ import { AddTaskContext } from "../context/AddTaskContext";
 const TodoAdd = () => {
   const { task, setTask } = useContext(TaskContext);
   const { add, setAdd } = useContext(AddTaskContext);
-  const API_URL = import.meta.env.VITE_API_URL;
 
   const addTask = () => {
     const data = {

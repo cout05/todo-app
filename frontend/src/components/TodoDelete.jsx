@@ -6,7 +6,6 @@ import { DeleteTaskContext } from "../context/DeleteTaskContext";
 const TodoDelete = () => {
   const { id, setId } = useContext(TaskIdContext);
   const { deleteTask, setDeleteTask } = useContext(DeleteTaskContext);
-  const API_URL = import.meta.env.VITE_API_URL;
 
   const isDeleted = () => {
     axios
