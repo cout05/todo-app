@@ -26,7 +26,7 @@ const TodoList = () => {
 
   useEffect(() => {
     axios
-      .get("https://todo-app-backend-three.vercel.app/task")
+      .get("https://todo-app-backend-three.vercel.app")
       .then((response) => {
         setTodo(response.data.data);
       })
