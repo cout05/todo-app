@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import taskRoutes from "./routes/taskRoutes";
+import taskRoutes from "./routes/taskRoutes.js";
 
 const PORT = 5555;
 const MONGO_URI =
