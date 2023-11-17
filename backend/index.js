@@ -23,7 +23,7 @@ app.get("/", (request, response) => {
   return response.status(234).send("Hello There");
 });
 
-app.use("/task", taskRoutes);
+app.use("/api/task", taskRoutes);
 
 mongoose
   .connect(MONGO_URI)
