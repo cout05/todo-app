@@ -1,22 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import taskRoutes from "./routes/taskRoutes.js";
+import taskRoutes from "./routes/taskRoutes";
 
 const PORT = 5555;
 const MONGO_URI =
   "mongodb+srv://eco:UkcFrodElFrUJANJ@todo-app.eyewt3h.mongodb.net/?retryWrites=true&w=majority";
 
 const app = express();
-
-app.use(
-  cors({
-    origin: ["*"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
-
 app.use(express.json());
 
 app.get("/", (request, response) => {
