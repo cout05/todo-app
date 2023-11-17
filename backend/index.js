@@ -17,7 +17,7 @@ app.get("/", (request, response) => {
   return response.status(234).send("Hello There");
 });
 
-app.use("/api/v1/task", taskRoutes);
+app.use("/task", taskRoutes);
 
 mongoose
   .connect(MONGO_URI)
