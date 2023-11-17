@@ -10,20 +10,14 @@ const MONGO_URI =
 const app = express();
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: ["*"],
-    methods: ["POST", "GET"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.get("/", (request, response) => {
   console.log(request);
   return response.status(234).send("Hello There");
 });
 
-app.use("/api/task", taskRoutes);
+app.use("/api/v1/task", taskRoutes);
 
 mongoose
   .connect(MONGO_URI)
