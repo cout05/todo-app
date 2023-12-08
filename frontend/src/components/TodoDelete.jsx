@@ -3,13 +3,15 @@ import axios from "axios";
 import { TaskIdContext } from "../context/TaskIdContext.jsx";
 import { DeleteTaskContext } from "../context/DeleteTaskContext";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const TodoDelete = () => {
   const { id, setId } = useContext(TaskIdContext);
   const { deleteTask, setDeleteTask } = useContext(DeleteTaskContext);
 
   const isDeleted = () => {
     axios
-      .delete(`https://todo-app-backend-three.vercel.app/task/${id}`)
+      .delete(`${apiUrl}/task/${id}`)
       .then(() => {
         console.log("deleted");
         setId("");

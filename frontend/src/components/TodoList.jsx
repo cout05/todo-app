@@ -16,6 +16,8 @@ function getDate() {
   return `${month}/${date}/${year}`;
 }
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const TodoList = () => {
   const [currentDate, setCurrentDate] = useState(getDate());
   const [todo, setTodo] = useState([]);
@@ -26,7 +28,7 @@ const TodoList = () => {
 
   useEffect(() => {
     axios
-      .get("https://todo-app-backend-three.vercel.app/task")
+      .get(`${apiUrl}/task`)
       .then((response) => {
         setTodo(response.data.data);
       })

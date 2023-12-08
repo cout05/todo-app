@@ -3,6 +3,8 @@ import axios from "axios";
 import { TaskIdContext } from "../context/TaskIdContext.jsx";
 import { UpdateStatusContext } from "../context/UpdateStatusContext";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const TodoUpdate = () => {
   const { id, setId } = useContext(TaskIdContext);
   const { updateStatus, setUpdateStatus } = useContext(UpdateStatusContext);
@@ -13,7 +15,7 @@ const TodoUpdate = () => {
       completed,
     };
     axios
-      .put(`https://todo-app-backend-three.vercel.app/task/${id}`, data)
+      .put(`${apiUrl}/task/${id}`, data)
       .then(() => {
         console.log("updated");
         setId("");

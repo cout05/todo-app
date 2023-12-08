@@ -3,6 +3,8 @@ import { TaskContext } from "../context/TaskContext";
 import axios from "axios";
 import { AddTaskContext } from "../context/AddTaskContext";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const TodoAdd = () => {
   const { task, setTask } = useContext(TaskContext);
   const { add, setAdd } = useContext(AddTaskContext);
@@ -12,7 +14,7 @@ const TodoAdd = () => {
       task,
     };
     axios
-      .post("https://todo-app-backend-three.vercel.app/task", data)
+      .post(`${apiUrl}/task`, data)
       .then(() => {
         setTask("");
         setAdd(false);
