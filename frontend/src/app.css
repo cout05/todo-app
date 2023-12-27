@@ -1,8 +1,6 @@
 body {
-  background: rgb(158, 205, 212);
-  background: linear-gradient(
-    0deg,
-    rgba(158, 205, 212, 1) 0%,
-    rgba(112, 173, 185, 1) 100%
-  );
+  background-image: url(./assets/images/bg1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -55,7 +55,7 @@ const TodoList = () => {
 
   return (
     <div className="mt-4">
-      <div className="bg-[#f4f5f4] text-[#515550] p-2 flex justify-between mb-2 border rounded">
+      <div className="bg-[#235e86] text-[#f4f5f4] p-2 flex justify-between mb-2 border rounded">
         <p className="font-semibold">Completed({completed})</p>
         <p className="font-semibold">{currentDate}</p>
       </div>
@@ -65,7 +65,7 @@ const TodoList = () => {
         todo.map((item) => (
           <div
             key={item._id}
-            className="flex items-center justify-between text drop-shadow-md bg-[#f4f5f4] text-[#515550] p-2 rounded border mb-2">
+            className="flex items-center justify-between text drop-shadow-md bg-[#f4f5f4] text-[#235e86] p-2 rounded border mb-2">
             <p
               className={`${item.completed ? "line-through" : ""}
               flex gap-2 font-semibold items-center`}>
@@ -81,7 +81,7 @@ const TodoList = () => {
             </p>
             <button
               onClick={() => onDelete(item._id)}
-              className="text-[#515550]">
+              className="text-[#235e86]">
               <RxCross2 className="text-xl" />
             </button>
           </div>

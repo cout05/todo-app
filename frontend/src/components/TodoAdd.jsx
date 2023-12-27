@@ -33,17 +33,15 @@ const TodoAdd = () => {
   return (
     <div
       className={`${add ? "flex" : "hidden"} flex-col absolute top-1/2 left-1/2
-     transform -translate-x-1/2 -translate-y-1/2 bg-[#f4f5f4] p-4 rounded`}>
+     transform -translate-x-1/2 -translate-y-1/2 bg-[#235e86] p-4 rounded`}>
       <div className="relative flex flex-col gap-4 justify-center p-4 w-[300px]">
-        <h1 className="text-center text-[#515550] text-2xl">Add Task?</h1>
+        <h1 className="text-center text-[#f4f5f4] text-2xl">Add Task?</h1>
         <div className="flex gap-4 justify-between">
-          <button
-            onClick={back}
-            className="flex-1 bg-[#515550] text-[#f4f5f4] p-2 rounded hover:bg-[#393b38]">
+          <button onClick={back} className="flex-1 text-[#f4f5f4] p-2 rounded">
             back
           </button>
           <button
-            className="flex-1 bg-[#70adb9] text-[#f4f5f4] p-2 rounded hover:bg-[#9ecdd4]"
+            className="flex-1 bg-[#f4f5f4] text-[#235e86] p-2 rounded hover:bg-[#9ecdd4]"
             onClick={addTask}>
             add
           </button>
