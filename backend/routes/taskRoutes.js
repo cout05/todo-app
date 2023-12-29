@@ -6,12 +6,12 @@ const router = express.Router();
 //Route to create a new Task
 router.post("/", async (request, response) => {
   try {
-    if (!request.body.task) {
+    if (!request.body.task && !request.body.userId) {
       return response.status(400).send({
         message: "Send all required fields: task",
       });
     }
-    const newTask = { task: request.body.task };
+    const newTask = { task: request.body.task, userId: request.body.userId };
     const task = await Task.create(newTask);
     return response.status(200).send(task);
   } catch (error) {

@@ -5,6 +5,10 @@ const taskSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  userId: {
+    type: String,
+    required: true,
+  },
   completed: {
     type: Boolean,
     default: false,
