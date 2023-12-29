@@ -47,7 +47,7 @@ transform -translate-x-1/2 -translate-y-1/2 bg-[#f4f5f4] p-4 rounded`}>
           </button>
           <button
             onClick={isUpdated}
-            className="flex-1 bg-[#70adb9] text-white p-2 rounded hover:bg-[#9ecdd4]">
+            className="flex-1 bg-[#235e86] text-white p-2 rounded hover:bg-[#9ecdd4]">
             yes
           </button>
         </div>

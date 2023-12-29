@@ -25,6 +25,18 @@ const TodoList = () => {
   const { setDeleteTask } = useContext(DeleteTaskContext);
   const { setUpdateStatus } = useContext(UpdateStatusContext);
   const [completed, setCompleted] = useState(0);
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`${apiUrl}/user`)
+      .then((response) => {
+        setName(response.data.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   useEffect(() => {
     axios
@@ -35,11 +47,13 @@ const TodoList = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [name]);
 
   useEffect(() => {
     let count = 0;
-    todo.map((item) => (item.completed ? (count += 1) : (count += 0)));
+    todo
+      .filter((e) => e.userId === name.userId)
+      .map((item) => (item.completed ? (count += 1) : (count += 0)));
     setCompleted(count);
   }, [todo]);
 
@@ -59,33 +73,35 @@ const TodoList = () => {
         <p className="font-semibold">Completed({completed})</p>
         <p className="font-semibold">{currentDate}</p>
       </div>
-      {todo.length === 0 ? (
+      {todo.filter((e) => e.userId === name.userId).length === 0 ? (
         <Loading />
       ) : (
-        todo.map((item) => (
-          <div
-            key={item._id}
-            className="flex items-center justify-between text drop-shadow-md bg-[#f4f5f4] text-[#235e86] p-2 rounded border mb-2">
-            <p
-              className={`${item.completed ? "line-through" : ""}
+        todo
+          .filter((e) => e.userId === name.userId)
+          .map((item) => (
+            <div
+              key={item._id}
+              className="flex items-center justify-between text drop-shadow-md bg-[#f4f5f4] text-[#235e86] p-2 rounded border mb-2">
+              <p
+                className={`${item.completed ? "line-through" : ""}
               flex gap-2 font-semibold items-center`}>
-              {item.completed ? (
-                <BsCheckCircleFill />
-              ) : (
-                <BsCheckCircle
-                  className="cursor-pointer"
-                  onClick={() => onUpdate(item._id)}
-                />
-              )}
-              {item.task}
-            </p>
-            <button
-              onClick={() => onDelete(item._id)}
-              className="text-[#235e86]">
-              <RxCross2 className="text-xl" />
-            </button>
-          </div>
-        ))
+                {item.completed ? (
+                  <BsCheckCircleFill />
+                ) : (
+                  <BsCheckCircle
+                    className="cursor-pointer"
+                    onClick={() => onUpdate(item._id)}
+                  />
+                )}
+                {item.task}
+              </p>
+              <button
+                onClick={() => onDelete(item._id)}
+                className="text-[#235e86]">
+                <RxCross2 className="text-xl" />
+              </button>
+            </div>
+          ))
       )}
     </div>
   );

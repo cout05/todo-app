@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { TaskContext } from "../context/TaskContext";
 import axios from "axios";
 import { AddTaskContext } from "../context/AddTaskContext";
@@ -8,10 +8,24 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const TodoAdd = () => {
   const { task, setTask } = useContext(TaskContext);
   const { add, setAdd } = useContext(AddTaskContext);
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(`${apiUrl}/user`)
+      .then((response) => {
+        setName(response.data.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const addTask = () => {
+    let user = name.userId;
     const data = {
-      task,
+      task: task,
+      userId: user,
     };
     axios
       .post(`${apiUrl}/task`, data)
@@ -19,7 +33,6 @@ const TodoAdd = () => {
         setTask("");
         setAdd(false);
         window.location.reload();
-        console.log("task!");
       })
       .catch((error) => {
         console.log(error);
