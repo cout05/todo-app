@@ -3,6 +3,7 @@ import TodoList from "./TodoList";
 import { TaskContext } from "../context/TaskContext";
 import { AddTaskContext } from "../context/AddTaskContext";
 import axios from "axios";
+import { CiLogout } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -39,10 +40,9 @@ const TodoApp = () => {
 
   return (
     <div className="p-4">
-      <Link
-        className="text-[#ff4141] w-full drop-shadow-lg font-semibold block text-right p-2 rounded-lg"
-        to="/">
-        Log Out
+      <Link className="flex justify-end gap-1 text-[#235e86]" to="/">
+        Log out
+        <CiLogout className="text-2xl" />
       </Link>
       <div className="mt-8 max-w-md mx-auto">
         <h1 className="text-3xl drop-shadow-xl text-[#235e86] font-bold text-center mb-4">
