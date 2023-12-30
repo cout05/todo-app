@@ -73,12 +73,12 @@ router.post("/login", async (request, response) => {
           message: "Login successful",
         });
       } else {
-        return response.status(401).send({
+        return response.status(200).send({
           message: "Incorrect password",
         });
       }
     } else {
-      return response.status(404).send({
+      return response.status(200).send({
         message: "User not found",
       });
     }
