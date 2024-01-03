@@ -32,7 +32,6 @@ const TodoAdd = () => {
       .then(() => {
         setTask("");
         setAdd(false);
-        window.location.reload();
       })
       .catch((error) => {
         console.log(error);

@@ -6,6 +6,8 @@ import { TaskIdContext } from "../context/TaskIdContext";
 import axios from "axios";
 import { DeleteTaskContext } from "../context/DeleteTaskContext";
 import { UpdateStatusContext } from "../context/UpdateStatusContext";
+import { TaskContext } from "../context/TaskContext";
+
 import Loading from "./Loading";
 
 function getDate() {
@@ -21,9 +23,11 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const TodoList = () => {
   const [currentDate, setCurrentDate] = useState(getDate());
   const [todo, setTodo] = useState([]);
-  const { setId } = useContext(TaskIdContext);
+  const { id, setId } = useContext(TaskIdContext);
   const { setDeleteTask } = useContext(DeleteTaskContext);
   const { setUpdateStatus } = useContext(UpdateStatusContext);
+  const { task } = useContext(TaskContext);
+
   const [completed, setCompleted] = useState(0);
   const [name, setName] = useState("");
 
@@ -47,7 +51,7 @@ const TodoList = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [name]);
+  }, [id, task]);
 
   useEffect(() => {
     let count = 0;

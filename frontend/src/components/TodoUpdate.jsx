@@ -20,7 +20,6 @@ const TodoUpdate = () => {
         console.log("updated");
         setId("");
         setUpdateStatus(false);
-        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
