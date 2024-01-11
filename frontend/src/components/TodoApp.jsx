@@ -10,10 +10,14 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 const TodoApp = () => {
   const [todo, setTodo] = useState("");
-  const { setTask } = useContext(TaskContext);
+  const { task, setTask } = useContext(TaskContext);
   const { setAdd } = useContext(AddTaskContext);
   const [isEmpty, setIsEmpty] = useState(false);
   const [name, setName] = useState("");
+
+  useEffect(() => {
+    task === "" ? setTodo("") : setTodo(todo);
+  }, [task]);
 
   useEffect(() => {
     axios
@@ -59,6 +63,7 @@ const TodoApp = () => {
                 isEmpty ? "border border-[#ff4141]" : "border-0"
               }  p-2 outline-0 rounded`}
               placeholder="Add a new task"
+              value={todo}
               onChange={(e) => setTodo(e.target.value)}
             />
             {isEmpty ? (
