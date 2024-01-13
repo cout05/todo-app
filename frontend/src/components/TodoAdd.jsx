@@ -9,6 +9,7 @@ const TodoAdd = () => {
   const { task, setTask } = useContext(TaskContext);
   const { add, setAdd } = useContext(AddTaskContext);
   const [name, setName] = useState("");
+  const [reminder, setReminder] = useState(false);
 
   useEffect(() => {
     axios
@@ -60,6 +61,9 @@ const TodoAdd = () => {
             add
           </button>
         </div>
+        {reminder ? (
+          <p className="text-[#e94c6e] ">Refresh page if it's stuck...</p>
+        ) : null}
       </div>
     </div>
   );
