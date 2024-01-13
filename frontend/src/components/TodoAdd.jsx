@@ -33,9 +33,11 @@ const TodoAdd = () => {
       .then(() => {
         setTask("");
         setAdd(false);
+        setReminder(false);
       })
       .catch((error) => {
         console.log(error);
+        setReminder(true);
       });
   };
 
