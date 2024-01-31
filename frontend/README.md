@@ -1,2 +1,3 @@
-#Full-Stack Todo App
-frontend
+## Frontend
+- **React Js**
+- **Tailwind Css**
