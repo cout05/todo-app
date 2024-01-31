@@ -1,2 +1,4 @@
-#Full-Stack Todo App
-backend
+## Backend
+
+- **Node Js**
+- **Mongo Db**
